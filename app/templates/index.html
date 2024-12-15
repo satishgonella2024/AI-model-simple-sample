@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Dashboard</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">API Docs</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <header>
+            <h1>Welcome to the AI Model Dashboard</h1>
+        </header>
+        <main>
+            <form id="promptForm">
+                <label for="modelSelector">Choose a model:</label>
+                <select id="modelSelector">
+                    <option value="gpt2">GPT-2</option>
+                    <option value="distilgpt2">DistilGPT-2</option>
+                </select>
+
+                <label for="promptInput">Enter a prompt:</label>
+                <textarea id="promptInput" maxlength="200" oninput="updateCharCount()"></textarea>
+                <p id="charCount">Characters left: 200</p>
+
+                <button type="submit">Generate</button>
+            </form>
+            <div id="spinner" class="spinner" style="display:none;">
+                <div class="spinner-circle"></div>
+                <p>Loading...</p>
+            </div>
+            <div id="resultContainer">
+                <h3>Generated Text:</h3>
+                <p id="resultText"></p>
+            </div>
+            <button id="downloadButton" onclick="exportText()">Download Generated Text</button>
+        </main>
+    </div>
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
